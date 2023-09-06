@@ -23,7 +23,9 @@ export const LogoNav = styled.nav`
   }
   a {
     text-decoration: none;
+    color: ${colors.black};
     &:hover {
+      color: ${colors.red};
       border-bottom: 2px solid #b88e2f;
     }
   }
