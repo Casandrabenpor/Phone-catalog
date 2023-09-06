@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/homePage';
 import './index.css';
-// import { Provider } from 'react-redux';
-// import { store } from './app/store';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
 // import reportWebVitals from './reportWebVitals';
 import { AdminPage } from './pages/adminPage';
@@ -14,14 +14,14 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/admin" element={<AdminPage />} />
-      </Routes>
-    </HashRouter>
-    {/* </Provider> */}
+    <Provider store={store}>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/admin" element={<AdminPage />} />
+        </Routes>
+      </HashRouter>
+    </Provider>
   </React.StrictMode>,
 );
 
