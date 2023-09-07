@@ -8,6 +8,7 @@ import { ButtonCard } from '../../styles/listStyled/listStyled';
 import { useTypedDispatch } from '../../app/store';
 import { Link, useNavigate } from 'react-router-dom';
 import { createPhone } from '../../features/listSlice/listApiSlice';
+import Phone from '../../models/interface';
 
 export const CreatePhone = () => {
   const dispatch = useTypedDispatch();
@@ -19,7 +20,7 @@ export const CreatePhone = () => {
       name: e.target.name.value,
       description: e.target.description.value,
       price: e.target.price.value,
-    };
+    } as Phone;
     dispatch(createPhone(newPhone));
     navigate('/admin');
   };

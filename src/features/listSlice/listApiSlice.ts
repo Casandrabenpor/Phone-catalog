@@ -33,7 +33,7 @@ export const deletePhone = createAsyncThunk(
       console.log(phoneId);
       // Envía una solicitud DELETE a la API para eliminar el teléfono
       const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://phones-store-api.containers.soamee.com/phone/${phoneId}`,
+        `https://cors-anywhere.herokuapp.com/https://phones-store-api.containers.soamee.com/phones/${phoneId}`,
         {
           method: 'DELETE',
         },
@@ -55,11 +55,10 @@ export const deletePhone = createAsyncThunk(
 // Create phone
 export const createPhone = createAsyncThunk(
   'phones/createPhone',
-  async (newPhone) => {
+  async (newPhone: Phone) => {
     try {
-      // Envía una solicitud POST (o PUT) a la API para crear el teléfono
       const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://phones-store-api.containers.soamee.com/phone/${newPhone}`,
+        'https://cors-anywhere.herokuapp.com/https://phones-store-api.containers.soamee.com/phones',
         {
           method: 'POST',
           headers: {
@@ -74,10 +73,8 @@ export const createPhone = createAsyncThunk(
         throw new Error(`No se pudo crear el teléfono: ${errorMessage}`);
       }
 
-      const createdPhone = await response.json();
-
       // Devuelve los datos del teléfono creado
-      return createdPhone;
+      return newPhone;
     } catch (error) {
       throw new Error('La solicitud falló');
     }
