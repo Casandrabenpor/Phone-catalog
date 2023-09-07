@@ -16,13 +16,17 @@ import {
 import { useTypedDispatch, useTypedSelector } from '../../app/store';
 import { loadPhones } from '../../features/listSlice/listApiSlice';
 import Phone from '../../models/interface';
-import { Admin } from '../Admin/deletePhone';
+import { DeletePhone } from '../Admin/deletePhone';
 
-export const ListPhones = ({ title }: { title: string }) => {
+interface ListPhonesProps {
+  title: string;
+  isAdmin: boolean; // Tipo boolean para isAdmin
+}
+export const ListPhones: React.FC<ListPhonesProps> = ({ title, isAdmin }) => {
   const dispatch = useTypedDispatch();
   const phoneStatus = useTypedSelector(getPhoneStatus);
   const phonesData = useTypedSelector(getAllPhones);
-  const isAdmin = true;
+
   useEffect(() => {
     // Cargamos los datos desde la API
     if (phoneStatus === 'idle') {
@@ -42,7 +46,7 @@ export const ListPhones = ({ title }: { title: string }) => {
             <TextGallery>{phone.description}</TextGallery>
             <RpGallery>{phone.price}</RpGallery>
             {/* <ButtonCard>Add to cart</ButtonCard> */}
-            {isAdmin && <Admin phone={phone} />}
+            <DeletePhone isAdmin={false} />
           </Card>
         ))}
       </Gallery>

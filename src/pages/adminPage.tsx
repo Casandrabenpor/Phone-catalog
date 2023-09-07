@@ -6,7 +6,7 @@ export const AdminPage = () => {
   return (
     <>
       <Nav />
-      <ListPhones title="ADMIN" />
+      <ListPhones title="ADMIN" isAdmin={true} />
     </>
   );
 };

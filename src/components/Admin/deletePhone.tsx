@@ -2,9 +2,8 @@ import React from 'react';
 import { Svg } from '../../styles/listStyled/adminStyled';
 import { useTypedDispatch } from '../../app/store';
 import { deletePhone } from '../../features/listSlice/listApiSlice';
-import { Subtitle } from '../../styles/listStyled/listStyled';
 
-export const Admin = (phone: any) => {
+export const DeletePhone = (phone: any) => {
   const dispatch = useTypedDispatch();
 
   //Delete phone

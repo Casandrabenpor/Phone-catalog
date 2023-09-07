@@ -23,9 +23,9 @@ export const Card = styled.div`
   img {
     background: #f4f1e7;
     box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.5);
-    width: 100%;
+    width: 250px;
+    height: 315px;
     object-fit: cover;
-    border: 2px solid #fffdfd;
   }
 `;
 export const ButtonCard = styled.button`

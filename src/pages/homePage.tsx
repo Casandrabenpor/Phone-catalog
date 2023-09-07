@@ -5,7 +5,7 @@ export const HomePage = () => {
   return (
     <>
       <Nav />
-      <ListPhones title="Phone list with cards" />
+      <ListPhones title="Phone list with cards" isAdmin={false} />
     </>
   );
 };
