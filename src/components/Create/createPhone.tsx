@@ -5,15 +5,31 @@ import {
   FormTitle,
 } from '../../styles/createStyled/createStyled';
 import { ButtonCard } from '../../styles/listStyled/listStyled';
-import { Link } from 'react-router-dom';
+import { useTypedDispatch } from '../../app/store';
+import { Link, useNavigate } from 'react-router-dom';
+import { createPhone } from '../../features/listSlice/listApiSlice';
 
 export const CreatePhone = () => {
+  const dispatch = useTypedDispatch();
+  const navigate = useNavigate();
+  const handleCreatePhone = (e: any) => {
+    e.preventDefault();
+    let newPhone = {
+      photoUrl: e.target.photo.value,
+      name: e.target.name.value,
+      description: e.target.description.value,
+      price: e.target.price.value,
+    };
+    dispatch(createPhone(newPhone));
+    navigate('/admin');
+  };
+
   return (
     <>
       <Container>
         <Link to="/">X</Link>
         <FormTitle>NEW PHONE</FormTitle>
-        <Form>
+        <Form onSubmit={handleCreatePhone}>
           <label htmlFor="photo">Photo Url</label>
           <input
             type="text"
@@ -46,7 +62,9 @@ export const CreatePhone = () => {
             defaultValue=""
             placeholder="Price"
           />
-          <ButtonCard type="submit">Submit</ButtonCard>
+          <ButtonCard type="submit" value="Create">
+            Submit
+          </ButtonCard>
         </Form>
       </Container>
     </>

@@ -1,4 +1,4 @@
-import { loadPhones, deletePhone } from './listApiSlice';
+import { loadPhones, deletePhone, createPhone } from './listApiSlice';
 import { createSlice } from '@reduxjs/toolkit';
 import Phone from '../../models/interface';
 
@@ -21,6 +21,18 @@ export const phonesSlice = createSlice({
       .addCase(loadPhones.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data = action.payload;
+      })
+      //Create phone
+      .addCase(createPhone.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(createPhone.rejected, (state) => {
+        state.status = 'failed';
+      })
+      .addCase(createPhone.fulfilled, (state, action) => {
+        state.status = 'fulfilled';
+        state.data.push(action.payload);
+        state.filteredData = state.data;
       })
       //Delete phone
       .addCase(deletePhone.pending, (state) => {

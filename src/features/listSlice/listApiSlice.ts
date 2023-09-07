@@ -52,3 +52,34 @@ export const deletePhone = createAsyncThunk(
     }
   },
 );
+// Create phone
+export const createPhone = createAsyncThunk(
+  'phones/createPhone',
+  async (newPhone) => {
+    try {
+      // Envía una solicitud POST (o PUT) a la API para crear el teléfono
+      const response = await fetch(
+        `https://cors-anywhere.herokuapp.com/https://phones-store-api.containers.soamee.com/phone/${newPhone}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newPhone),
+        },
+      );
+
+      if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`No se pudo crear el teléfono: ${errorMessage}`);
+      }
+
+      const createdPhone = await response.json();
+
+      // Devuelve los datos del teléfono creado
+      return createdPhone;
+    } catch (error) {
+      throw new Error('La solicitud falló');
+    }
+  },
+);
