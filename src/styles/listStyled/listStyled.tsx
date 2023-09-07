@@ -15,7 +15,9 @@ export const Card = styled.div`
 
   img {
     width: 50%;
-    height: auto;
+    object-fit: cover;
+    border: 2px solid #fffdfd;
+    flex-grow: 3;
   }
 `;
 export const ButtonCard = styled.button`
@@ -30,13 +32,11 @@ export const ButtonCard = styled.button`
   line-height: 150%;
 `;
 export const Gallery = styled.section`
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  justify-items: center; */
+  display: grid;
+  align-items: center;
+  margin: 5%;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas */
-  grid-gap: 20px; /* Espacio entre las tarjetas */
-  grid-gap: 20px;
+  gap: 1em;
   margin-top: 5%;
 `;
 export const TitleGallery = styled.h4`
