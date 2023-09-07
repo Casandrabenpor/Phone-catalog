@@ -2,15 +2,17 @@ import React from 'react';
 import { Svg } from '../../styles/listStyled/adminStyled';
 import { useTypedDispatch } from '../../app/store';
 import { deletePhone } from '../../features/listSlice/listApiSlice';
+import Phone from '../../models/interface';
 
-export const DeletePhone = (phone: any) => {
+export const DeletePhone = (props: any) => {
   const dispatch = useTypedDispatch();
 
   //Delete phone
   const handleDeletePhone = (event: React.MouseEvent) => {
     event.preventDefault();
-    dispatch(deletePhone());
+    dispatch(deletePhone(props.phoneId));
   };
+
   return (
     <>
       <Svg

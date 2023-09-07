@@ -20,7 +20,7 @@ root.render(
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/details" element={<DetailsPhone />} />
+          <Route path="/details/*" element={<DetailsPhone />} />
         </Routes>
       </HashRouter>
     </Provider>

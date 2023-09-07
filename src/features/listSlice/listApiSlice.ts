@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import Phone from '../../models/interface';
 
 export const loadPhones = createAsyncThunk('phones/getPhones', async () => {
   const data = await fetch(
@@ -6,9 +7,11 @@ export const loadPhones = createAsyncThunk('phones/getPhones', async () => {
   ).catch((error) => {
     throw error;
   });
+
   const json = await data.json().catch((error) => {
     throw new Error('La solicitud a la API falló');
   });
+
   let photos = json.map((phone: any) => {
     return {
       photoUrl: phone.photoUrl,
@@ -16,7 +19,7 @@ export const loadPhones = createAsyncThunk('phones/getPhones', async () => {
       name: phone.name,
       description: phone.description,
       price: phone.price,
-    };
+    } as Phone;
   });
 
   return photos;
@@ -25,17 +28,20 @@ export const loadPhones = createAsyncThunk('phones/getPhones', async () => {
 // Admin createAsyncThunk delete
 export const deletePhone = createAsyncThunk(
   'phones/deletePhone',
-  async (phoneId) => {
+  async (phoneId: number | undefined) => {
     try {
+      console.log(phoneId);
       // Envía una solicitud DELETE a la API para eliminar el teléfono
       const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://phones-store-api.containers.soamee.com/phones`,
+        `https://cors-anywhere.herokuapp.com/https://phones-store-api.containers.soamee.com/phone/${phoneId}`,
         {
           method: 'DELETE',
         },
       );
 
       if (!response.ok) {
+        let result = await response.text();
+        console.log(result);
         throw new Error('No se pudo eliminar el teléfono.');
       }
 

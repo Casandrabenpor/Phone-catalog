@@ -25,7 +25,7 @@ interface ListPhonesProps {
 export const ListPhones: React.FC<ListPhonesProps> = ({ title, isAdmin }) => {
   const dispatch = useTypedDispatch();
   const phoneStatus = useTypedSelector(getPhoneStatus);
-  const phonesData = useTypedSelector(getAllPhones);
+  const phonesData = useTypedSelector(getAllPhones) as Phone[];
 
   useEffect(() => {
     // Cargamos los datos desde la API
@@ -33,20 +33,21 @@ export const ListPhones: React.FC<ListPhonesProps> = ({ title, isAdmin }) => {
       dispatch(loadPhones());
     }
   }, [phoneStatus, dispatch]);
+
   return (
     <div>
       <Subtitle>{title}</Subtitle>
       <Gallery>
         {phonesData.map((phone: Phone) => (
           <Card key={phone.id}>
-            <Link to="/details">
+            <Link to={`/details/${phone.id}`}>
               <img src={phone.photoUrl} alt={phone.name} />
             </Link>
             <TitleGallery>{phone.name}</TitleGallery>
             <TextGallery>{phone.description}</TextGallery>
             <RpGallery>{phone.price}</RpGallery>
             {/* <ButtonCard>Add to cart</ButtonCard> */}
-            <DeletePhone isAdmin={false} />
+            <DeletePhone phoneId={phone.id} />
           </Card>
         ))}
       </Gallery>
