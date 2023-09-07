@@ -1,12 +1,12 @@
 import React from 'react';
-import { Admin } from '../components/Admin/admin';
 import { Nav } from '../components/nav';
+import { ListPhones } from '../components/Home/listPhones';
 
 export const AdminPage = () => {
   return (
     <>
       <Nav />
-      <Admin />
+      <ListPhones title="ADMIN" />
     </>
   );
 };

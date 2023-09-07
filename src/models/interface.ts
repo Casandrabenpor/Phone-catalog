@@ -1,7 +1,7 @@
 // phoneTypes.ts
 
 interface Phone {
-  id: number;
+  id: number | undefined;
   name: string;
   photoUrl: string;
   description: string;

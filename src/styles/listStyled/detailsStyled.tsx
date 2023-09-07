@@ -4,6 +4,7 @@ import { colors } from '../theme';
 export const Details = styled.div`
   width: 78%;
   height: 467px;
+  background-color: white;
   box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;

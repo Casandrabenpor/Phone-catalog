@@ -1,23 +1,31 @@
 import styled from 'styled-components';
 import { colors } from '../theme';
 
-export const Subtitle = styled.h2`
+export const Subtitle = styled.h1`
   text-align: center;
   font-family: Poppins;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
-  line-height: 120%; /* 48px */
+  line-height: 120%;
+  color: ${colors.whiteThree};
 `;
 
 export const Card = styled.div`
   cursor: pointer;
+  background: #f4f1e7;
+  box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.5);
+  padding: 10% 6% 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   img {
-    width: 50%;
+    background: #f4f1e7;
+    box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
     object-fit: cover;
     border: 2px solid #fffdfd;
-    flex-grow: 3;
   }
 `;
 export const ButtonCard = styled.button`

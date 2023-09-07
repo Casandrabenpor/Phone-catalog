@@ -6,10 +6,10 @@ export const LogoNav = styled.nav`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  gap: 2em;
-  padding: 2em;
+  padding: 1em;
+  background-color: white;
   img {
-    width: 8%;
+    width: 10%;
     height: 15vh;
   }
   ul {

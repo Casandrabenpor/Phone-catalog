@@ -5,7 +5,7 @@ export const HomePage = () => {
   return (
     <>
       <Nav />
-      <ListPhones />
+      <ListPhones title="Phone list with cards" />
     </>
   );
 };
