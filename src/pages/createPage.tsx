@@ -1,11 +1,10 @@
 import React from 'react';
 
-// import React from 'react';
-// import { Nav } from '../components/nav';
-// export const HomePage = () => {
-//   return (
-//     <>
-//       <Create />
-//     </>
-//   );
-// };
+import { CreatePhone } from '../components/Create/createPhone';
+export const CreatePage = () => {
+  return (
+    <>
+      <CreatePhone />
+    </>
+  );
+};

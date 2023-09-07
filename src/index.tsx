@@ -9,6 +9,7 @@ import { store } from './app/store';
 // import reportWebVitals from './reportWebVitals';
 import { AdminPage } from './pages/adminPage';
 import { DetailsPhone } from './components/Home/detailsPhone';
+import { CreatePage } from './pages/createPage';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
@@ -20,6 +21,7 @@ root.render(
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/create" element={<CreatePage />} />
           <Route path="/details/*" element={<DetailsPhone />} />
         </Routes>
       </HashRouter>
