@@ -34,7 +34,7 @@ export const ButtonCard = styled.button`
 export const Gallery = styled.section`
   display: grid;
   align-items: center;
-  margin: 5%;
+  padding: 5%;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas */
   gap: 1em;
   margin-top: 5%;
@@ -57,23 +57,4 @@ export const RpGallery = styled.h4`
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-`;
-export const ButtonGallery = styled.button`
-  color: ${colors.yellow};
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%;
-  border: 1px solid ${colors.yellow};
-  background: #fff;
-  margin-left: 45%;
-  margin-top: 5%;
-  width: 15em;
-  height: 5em;
-  cursor: pointer;
-  &:hover {
-    background-color: ${colors.yellow};
-    color: ${colors.white};
-  }
 `;

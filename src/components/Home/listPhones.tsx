@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   ButtonCard,
   Card,
@@ -31,7 +32,9 @@ export const ListPhones = () => {
       <Gallery>
         {phonesData.map((phone: Phone) => (
           <Card key={phone.id}>
-            <img src={phone.photoUrl} alt={phone.name} />
+            <Link to="/details">
+              <img src={phone.photoUrl} alt={phone.name} />
+            </Link>
             <TitleGallery>{phone.name}</TitleGallery>
             <TextGallery>{phone.description}</TextGallery>
             <RpGallery>{phone.price}</RpGallery>
