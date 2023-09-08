@@ -11,7 +11,7 @@ export const DetailsPhone = () => {
 
   const phonesData = useTypedSelector(getAllPhones) as Phone[];
 
-  const phone = phonesData.find((phone) => phone.id == phoneId);
+  const phone = phonesData.find((phone) => phone.id === phoneId);
 
   return (
     <Details>
