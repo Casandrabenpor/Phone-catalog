@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../theme';
 
 export const Details = styled.div`
   box-shadow: 0px 16px 30px #f1eaea13;
