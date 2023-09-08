@@ -18,7 +18,8 @@ import { loadPhones } from '../../features/listSlice/phoneApiSlice';
 import Phone from '../../models/interface';
 import { DeletePhone } from '../Admin/deletePhone';
 import { HeartButton } from '../Heart/heartButton';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 interface ListPhonesProps {
   title: string;
   isAdmin: boolean; // Tipo boolean para isAdmin
@@ -37,6 +38,7 @@ export const ListPhones: React.FC<ListPhonesProps> = ({ title, isAdmin }) => {
 
   return (
     <div>
+      <ToastContainer theme="colored" />
       <Subtitle>{title}</Subtitle>
       <Gallery>
         {phonesData.map((phone: Phone) => (

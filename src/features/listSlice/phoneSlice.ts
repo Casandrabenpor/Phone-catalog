@@ -1,4 +1,5 @@
 import { loadPhones, deletePhone, createPhone } from './phoneApiSlice';
+import { toast } from 'react-toastify';
 import { createSlice } from '@reduxjs/toolkit';
 import Phone from '../../models/interface';
 
@@ -28,11 +29,17 @@ export const phonesSlice = createSlice({
       })
       .addCase(createPhone.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item not created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(createPhone.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data.push(action.payload);
         state.filteredData = state.data;
+        toast.success('Item created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       //Delete phone
       .addCase(deletePhone.pending, (state) => {
@@ -40,11 +47,17 @@ export const phonesSlice = createSlice({
       })
       .addCase(deletePhone.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item not removed', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deletePhone.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data = state.data.filter((phone) => phone.id !== action.payload);
         state.filteredData = state.data;
+        toast.success('Item removed', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       });
   },
 });

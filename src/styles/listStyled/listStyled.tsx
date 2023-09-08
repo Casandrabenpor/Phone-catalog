@@ -8,6 +8,7 @@ export const Subtitle = styled.h1`
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
+  margin-top: 5%;
   color: ${colors.whiteThree};
 `;
 
