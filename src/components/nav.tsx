@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Logo from '../assets/logophone.jpg';
 import { LogoNav } from '../styles/NavStyled';
 import { Link } from 'react-router-dom';
+import { ButtonLogout } from './Logout/buttonLogout';
 
 export const Nav = () => {
   const [activeLink, setActiveLink] = useState('home');
@@ -49,6 +50,7 @@ export const Nav = () => {
             <Link to="/create">✏ Create</Link>
           </li>
         </ul>
+        <ButtonLogout />
       </LogoNav>
     </>
   );

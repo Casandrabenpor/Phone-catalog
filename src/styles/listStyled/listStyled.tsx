@@ -43,7 +43,7 @@ export const Gallery = styled.section`
   display: grid;
   align-items: center;
   padding: 5%;
-  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1em;
   margin-top: 5%;
 `;
@@ -65,4 +65,10 @@ export const TextPrice = styled.h4`
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
+`;
+export const IconsCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20em;
 `;

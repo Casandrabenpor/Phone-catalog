@@ -11,7 +11,7 @@ import { AdminPage } from './pages/adminPage';
 import { DetailsPage } from './pages/detailsPhonePage';
 import { CreatePage } from './pages/createPage';
 import { LoginPage } from './pages/loginPage';
-
+import { App } from './App';
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 
@@ -21,7 +21,8 @@ root.render(
       <HashRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/admin" element={<LoginPage />} />
+          {/* <Route path="/admin" element={<LoginPage />} /> */}
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="/create" element={<CreatePage />} />
           <Route path="/details/*" element={<DetailsPage />} />
         </Routes>
