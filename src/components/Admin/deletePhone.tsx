@@ -2,7 +2,6 @@ import React from 'react';
 import { Svg } from '../../styles/listStyled/adminStyled';
 import { useTypedDispatch } from '../../app/store';
 import { deletePhone } from '../../features/listSlice/phoneApiSlice';
-import Phone from '../../models/interface';
 
 export const DeletePhone = (props: any) => {
   const dispatch = useTypedDispatch();
@@ -21,10 +20,32 @@ export const DeletePhone = (props: any) => {
         y="0px"
         width="100"
         height="100"
-        viewBox="0 0 24 24"
+        viewBox="0 0 48 48"
         onClick={handleDeletePhone}
       >
-        <path d="M 10.806641 2 C 10.289641 2 9.7956875 2.2043125 9.4296875 2.5703125 L 9 3 L 4 3 A 1.0001 1.0001 0 1 0 4 5 L 20 5 A 1.0001 1.0001 0 1 0 20 3 L 15 3 L 14.570312 2.5703125 C 14.205312 2.2043125 13.710359 2 13.193359 2 L 10.806641 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z"></path>
+        <linearGradient
+          id="nyvBozV7VK1PdF3LtMmOna_pre7LivdxKxJ_gr1"
+          x1="18.405"
+          x2="33.814"
+          y1="10.91"
+          y2="43.484"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stop-color="#32bdef"></stop>
+          <stop offset="1" stop-color="#1ea2e4"></stop>
+        </linearGradient>
+        <path
+          fill="url(#nyvBozV7VK1PdF3LtMmOna_pre7LivdxKxJ_gr1)"
+          d="M39,10l-2.835,31.181C36.072,42.211,35.208,43,34.174,43H13.826	c-1.034,0-1.898-0.789-1.992-1.819L9,10H39z"
+        ></path>
+        <path
+          fill="#0176d0"
+          d="M32,7c0-1.105-0.895-2-2-2H18c-1.105,0-2,0.895-2,2c0,0,0,0.634,0,1h16C32,7.634,32,7,32,7z"
+        ></path>
+        <path
+          fill="#007ad9"
+          d="M7,9.886L7,9.886C7,9.363,7.358,8.912,7.868,8.8C10.173,8.293,16.763,7,24,7s13.827,1.293,16.132,1.8	C40.642,8.912,41,9.363,41,9.886v0C41,10.501,40.501,11,39.886,11H8.114C7.499,11,7,10.501,7,9.886z"
+        ></path>
       </Svg>
     </>
   );

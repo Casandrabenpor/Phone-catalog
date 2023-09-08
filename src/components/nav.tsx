@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Logo from '../assets/logophone.jpg';
 import { LogoNav } from '../styles/NavStyled';
 import { Link } from 'react-router-dom';
@@ -7,12 +7,8 @@ import { useTypedSelector } from '../app/store';
 import { isUserLogged } from '../features/listSlice/loginSlice/loginSlice';
 
 export const Nav = () => {
-  const [activeLink, setActiveLink] = useState('home');
   const logged = useTypedSelector(isUserLogged);
-  // Función para cambiar el elemento activo
-  const handleSetActiveLink = (event: React.MouseEvent, link: string) => {
-    setActiveLink(link);
-  };
+
   return (
     <>
       <LogoNav>
@@ -20,20 +16,10 @@ export const Nav = () => {
         <h2>Phone Catalog</h2>
         <ul>
           <li key="home">
-            <Link
-              to="/"
-              onClick={(e) => handleSetActiveLink(e, 'home')}
-              className={activeLink === 'home' ? 'active' : ''}
-            >
-              🏠 HOME
-            </Link>
+            <Link to="/"> 🏠 HOME</Link>
           </li>
           <li key="admin">
-            <Link
-              to="/admin/phones"
-              onClick={(e) => handleSetActiveLink(e, 'admin')}
-              className={activeLink === 'admin' ? 'active' : ''}
-            >
+            <Link to="/admin/phones">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -50,7 +36,20 @@ export const Nav = () => {
           </li>
           {logged && (
             <li key="create">
-              <Link to="/admin/phone/create">✏ Create</Link>
+              <Link to="/admin/phone/create">
+                {' '}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M 18.400391 2 C 18.100391 2 17.899219 2.1007812 17.699219 2.3007812 L 15.707031 4.2929688 L 14.292969 5.7070312 L 3 17 L 3 21 L 7 21 L 21.699219 6.3007812 C 22.099219 5.9007812 22.099219 5.3003906 21.699219 4.9003906 L 19.099609 2.3007812 C 18.899609 2.1007812 18.700391 2 18.400391 2 z M 18.400391 4.4003906 L 19.599609 5.5996094 L 18.306641 6.8925781 L 17.107422 5.6933594 L 18.400391 4.4003906 z M 15.693359 7.1074219 L 16.892578 8.3066406 L 6.1992188 19 L 5 19 L 5 17.800781 L 15.693359 7.1074219 z"></path>
+                </svg>
+                Create
+              </Link>
             </li>
           )}
         </ul>
