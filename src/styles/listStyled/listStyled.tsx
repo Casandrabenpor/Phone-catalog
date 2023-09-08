@@ -60,7 +60,7 @@ export const TextGallery = styled.h4`
   font-style: normal;
   font-weight: 500;
 `;
-export const RpGallery = styled.h4`
+export const TextPrice = styled.h4`
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;

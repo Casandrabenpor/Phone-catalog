@@ -4,7 +4,7 @@ import {
   ButtonCard,
   Card,
   Gallery,
-  RpGallery,
+  TextPrice,
   Subtitle,
   TextGallery,
   TitleGallery,
@@ -45,7 +45,7 @@ export const ListPhones: React.FC<ListPhonesProps> = ({ title, isAdmin }) => {
             </Link>
             <TitleGallery>{phone.name}</TitleGallery>
             <TextGallery>{phone.description}</TextGallery>
-            <RpGallery>{phone.price}</RpGallery>
+            <TextPrice>{phone.price}</TextPrice>
             {/* <ButtonCard>Add to cart</ButtonCard> */}
             <DeletePhone phoneId={phone.id} />
           </Card>
