@@ -8,7 +8,7 @@ import { store } from './app/store';
 
 // import reportWebVitals from './reportWebVitals';
 import { AdminPage } from './pages/adminPage';
-import { DetailsPhone } from './components/Home/detailsPhone';
+import { DetailsPage } from './pages/detailsPhonePage';
 import { CreatePage } from './pages/createPage';
 
 const container = document.getElementById('root') as HTMLElement;
@@ -22,7 +22,7 @@ root.render(
           <Route path="/" element={<HomePage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/create" element={<CreatePage />} />
-          <Route path="/details/*" element={<DetailsPhone />} />
+          <Route path="/details/*" element={<DetailsPage />} />
         </Routes>
       </HashRouter>
     </Provider>

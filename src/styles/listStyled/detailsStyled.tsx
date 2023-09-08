@@ -9,6 +9,10 @@ export const Details = styled.div`
   margin-top: 2%;
   padding: 2em;
   background-color: white;
+  text-align: center;
+  svg {
+    margin-right: 80%;
+  }
   img {
     width: 250px;
     height: 315px;
