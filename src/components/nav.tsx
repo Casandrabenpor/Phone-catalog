@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../assets/logophone.jpg';
 import { LogoNav } from '../styles/NavStyled';
 import { Link } from 'react-router-dom';
 
 export const Nav = () => {
+  const [activeLink, setActiveLink] = useState('home');
+
+  // Función para cambiar el elemento activo
+  const handleSetActiveLink = (link: any) => {
+    setActiveLink(link);
+  };
   return (
     <>
       <LogoNav>
@@ -11,10 +17,20 @@ export const Nav = () => {
         <h2>Phone Catalog</h2>
         <ul>
           <li key="home">
-            <Link to="/">🏠 HOME</Link>
+            <Link
+              to="/"
+              onClick={() => handleSetActiveLink('home')}
+              className={activeLink === 'home' ? 'active' : ''}
+            >
+              🏠 HOME
+            </Link>
           </li>
           <li key="admin">
-            <Link to="/admin">
+            <Link
+              to="/admin"
+              onClick={() => handleSetActiveLink('admin')}
+              className={activeLink === 'admin' ? 'active' : ''}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
