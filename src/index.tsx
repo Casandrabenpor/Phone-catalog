@@ -12,6 +12,7 @@ import { DetailsPage } from './pages/detailsPhonePage';
 import { CreatePage } from './pages/createPage';
 import { LoginPage } from './pages/loginPage';
 import { App } from './App';
+import { ProtectedRoute } from './proctectedRoute';
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 
@@ -20,10 +21,28 @@ root.render(
     <Provider store={store}>
       <HashRouter>
         <Routes>
+          <Route
+            index
+            path="/admin/phones"
+            element={
+              <ProtectedRoute>
+                {' '}
+                <AdminPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            index
+            path="/admin/phone/create"
+            element={
+              <ProtectedRoute>
+                {' '}
+                <CreatePage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/admin" element={<LoginPage />} /> */}
-          <Route path="/admin" element={<AdminPage />} />
-          <Route path="/create" element={<CreatePage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/details/*" element={<DetailsPage />} />
         </Routes>
       </HashRouter>

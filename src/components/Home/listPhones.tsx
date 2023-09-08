@@ -49,7 +49,7 @@ export const ListPhones: React.FC<ListPhonesProps> = ({ title, isAdmin }) => {
             <TextPrice>{phone.price}</TextPrice>
             {/* <ButtonCard>Add to cart</ButtonCard> */}
             <IconsCard>
-              <DeletePhone phoneId={phone.id} />
+              {isAdmin && <DeletePhone phoneId={phone.id} />}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"

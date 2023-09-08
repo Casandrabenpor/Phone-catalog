@@ -3,12 +3,14 @@ import Logo from '../assets/logophone.jpg';
 import { LogoNav } from '../styles/NavStyled';
 import { Link } from 'react-router-dom';
 import { ButtonLogout } from './Logout/buttonLogout';
+import { useTypedSelector } from '../app/store';
+import { isUserLogged } from '../features/listSlice/loginSlice/loginSlice';
 
 export const Nav = () => {
   const [activeLink, setActiveLink] = useState('home');
-
+  const logged = useTypedSelector(isUserLogged);
   // Función para cambiar el elemento activo
-  const handleSetActiveLink = (link: any) => {
+  const handleSetActiveLink = (event: React.MouseEvent, link: string) => {
     setActiveLink(link);
   };
   return (
@@ -20,7 +22,7 @@ export const Nav = () => {
           <li key="home">
             <Link
               to="/"
-              onClick={() => handleSetActiveLink('home')}
+              onClick={(e) => handleSetActiveLink(e, 'home')}
               className={activeLink === 'home' ? 'active' : ''}
             >
               🏠 HOME
@@ -28,8 +30,8 @@ export const Nav = () => {
           </li>
           <li key="admin">
             <Link
-              to="/admin"
-              onClick={() => handleSetActiveLink('admin')}
+              to="/admin/phones"
+              onClick={(e) => handleSetActiveLink(e, 'admin')}
               className={activeLink === 'admin' ? 'active' : ''}
             >
               <svg
@@ -46,9 +48,11 @@ export const Nav = () => {
               </svg>
             </Link>
           </li>
-          <li key="create">
-            <Link to="/create">✏ Create</Link>
-          </li>
+          {logged && (
+            <li key="create">
+              <Link to="/admin/phone/create">✏ Create</Link>
+            </li>
+          )}
         </ul>
         <ButtonLogout />
       </LogoNav>

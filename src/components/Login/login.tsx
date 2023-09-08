@@ -24,7 +24,7 @@ export const Login = () => {
           loggedIn: true,
         }),
       );
-      navigate('/');
+      navigate('/admin/phones');
     } else {
       setError('Credenciales incorrectas');
     }
