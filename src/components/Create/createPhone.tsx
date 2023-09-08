@@ -7,7 +7,7 @@ import {
 } from '../../styles/createStyled/createStyled';
 import { useTypedDispatch } from '../../app/store';
 import { Link, useNavigate } from 'react-router-dom';
-import { createPhone } from '../../features/listSlice/listApiSlice';
+import { createPhone } from '../../features/listSlice/phoneApiSlice';
 import Phone from '../../models/interface';
 
 export const CreatePhone = () => {

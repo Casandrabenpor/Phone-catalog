@@ -1,7 +1,7 @@
 import React from 'react';
 import { Svg } from '../../styles/listStyled/adminStyled';
 import { useTypedDispatch } from '../../app/store';
-import { deletePhone } from '../../features/listSlice/listApiSlice';
+import { deletePhone } from '../../features/listSlice/phoneApiSlice';
 import Phone from '../../models/interface';
 
 export const DeletePhone = (props: any) => {

@@ -1,4 +1,4 @@
-import { loadPhones, deletePhone, createPhone } from './listApiSlice';
+import { loadPhones, deletePhone, createPhone } from './phoneApiSlice';
 import { createSlice } from '@reduxjs/toolkit';
 import Phone from '../../models/interface';
 

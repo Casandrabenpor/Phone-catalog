@@ -14,7 +14,7 @@ import {
   getAllPhones,
 } from '../../features/listSlice/phoneSlice';
 import { useTypedDispatch, useTypedSelector } from '../../app/store';
-import { loadPhones } from '../../features/listSlice/listApiSlice';
+import { loadPhones } from '../../features/listSlice/phoneApiSlice';
 import Phone from '../../models/interface';
 import { DeletePhone } from '../Admin/deletePhone';
 
