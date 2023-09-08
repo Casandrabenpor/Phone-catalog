@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { ContainerLogin, Form } from '../../styles/loginStyled/loginStyled';
 import logo from '../../assets/logophone.jpg';
 import { useTypedDispatch } from '../../app/store';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { login } from '../../features/listSlice/loginSlice/loginSlice';
+import { toast } from 'react-toastify';
 
 export const Login = () => {
   const dispatch = useTypedDispatch();
@@ -24,13 +26,18 @@ export const Login = () => {
           loggedIn: true,
         }),
       );
+
       navigate('/admin/phones');
     } else {
       setError('Credenciales incorrectas');
+      toast.error('User incorrect', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   };
   return (
     <ContainerLogin>
+      <ToastContainer theme="colored" />
       <img src={logo} alt="logo" />
       <p>Phone Catalog</p>
 

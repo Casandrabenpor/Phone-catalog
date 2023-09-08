@@ -26,6 +26,9 @@ export const phonesSlice = createSlice({
       //Create phone
       .addCase(createPhone.pending, (state) => {
         state.status = 'loading';
+        toast.info('Is pending', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(createPhone.rejected, (state) => {
         state.status = 'failed';
@@ -44,6 +47,9 @@ export const phonesSlice = createSlice({
       //Delete phone
       .addCase(deletePhone.pending, (state) => {
         state.status = 'loading';
+        toast.info('Is pending', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deletePhone.rejected, (state) => {
         state.status = 'failed';

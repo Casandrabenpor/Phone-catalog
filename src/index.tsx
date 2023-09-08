@@ -11,6 +11,7 @@ import { AdminPage } from './pages/adminPage';
 import { DetailsPage } from './pages/detailsPhonePage';
 import { CreatePage } from './pages/createPage';
 import { LoginPage } from './pages/loginPage';
+
 import { ProtectedRoute } from './proctectedRoute';
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
