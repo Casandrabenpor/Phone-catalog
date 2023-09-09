@@ -6,6 +6,7 @@ import { CreatePage } from './pages/createPage';
 import { HomePage } from './pages/homePage';
 import { LoginPage } from './pages/loginPage';
 import { DetailsPage } from './pages/detailsPhonePage';
+import { ShopPage } from './pages/shopPage';
 
 function App() {
   return (
@@ -27,6 +28,16 @@ function App() {
           <ProtectedRoute>
             {' '}
             <CreatePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        index
+        path="/admin/purchases"
+        element={
+          <ProtectedRoute>
+            {' '}
+            <ShopPage />
           </ProtectedRoute>
         }
       />

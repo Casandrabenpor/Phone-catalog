@@ -9,7 +9,7 @@ export const loadPhones = createAsyncThunk('phones/getPhones', async () => {
   });
 
   const json = await data.json().catch((error) => {
-    throw new Error('La solicitud a la API falló');
+    throw new Error('API request failed');
   });
 
   let photos = json.map((phone: any) => {
@@ -42,13 +42,13 @@ export const deletePhone = createAsyncThunk(
       if (!response.ok) {
         let result = await response.text();
         console.log(result);
-        throw new Error('No se pudo eliminar el teléfono.');
+        throw new Error('Phone could not be removed.');
       }
 
       // Return the ID of the deleted phone.
       return phoneId;
     } catch (error) {
-      throw new Error('La solicitud para eliminar el teléfono falló');
+      throw new Error('Request to remove the phone failed');
     }
   },
 );
@@ -70,13 +70,13 @@ export const createPhone = createAsyncThunk(
 
       if (!response.ok) {
         const errorMessage = await response.text();
-        throw new Error(`No se pudo crear el teléfono: ${errorMessage}`);
+        throw new Error(`Phone could not be created: ${errorMessage}`);
       }
 
       // Returns the data for the phone created.
       return newPhone;
     } catch (error) {
-      throw new Error('La solicitud falló');
+      throw new Error('Application failed');
     }
   },
 );
