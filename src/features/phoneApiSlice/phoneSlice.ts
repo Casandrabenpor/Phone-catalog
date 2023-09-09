@@ -1,4 +1,4 @@
-import { loadPhones, deletePhone, createPhone } from './phoneApiSlice';
+import { loadPhones, deletePhone, createPhone } from './phoneApiThunks';
 import { toast } from 'react-toastify';
 import { createSlice } from '@reduxjs/toolkit';
 import Phone from '../../models/interface';
@@ -18,10 +18,18 @@ export const phonesSlice = createSlice({
       })
       .addCase(loadPhones.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item not loaded', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(loadPhones.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data = action.payload;
+        if (Array.isArray(state.data) && state.data.length === 0) {
+          toast.info('There are no phones', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
       })
       //Create phone
       .addCase(createPhone.pending, (state) => {
@@ -47,7 +55,7 @@ export const phonesSlice = createSlice({
       //Delete phone
       .addCase(deletePhone.pending, (state) => {
         state.status = 'loading';
-        toast.info('Is pending', {
+        toast.info('Remove in progress', {
           position: toast.POSITION.TOP_RIGHT,
         });
       })

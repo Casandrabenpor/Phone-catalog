@@ -1,7 +1,7 @@
 import React from 'react';
-import { Svg } from '../../styles/listStyled/adminStyled';
+import { Svg } from '../../styles/cardsStyled/adminStyled';
 import { useTypedDispatch } from '../../app/store';
-import { deletePhone } from '../../features/listSlice/phoneApiSlice';
+import { deletePhone } from '../../features/phoneApiSlice/phoneApiThunks';
 
 export const DeletePhone = (props: any) => {
   const dispatch = useTypedDispatch();
@@ -22,6 +22,7 @@ export const DeletePhone = (props: any) => {
         height="100"
         viewBox="0 0 48 48"
         onClick={handleDeletePhone}
+        className="heartbeat"
       >
         <linearGradient
           id="nyvBozV7VK1PdF3LtMmOna_pre7LivdxKxJ_gr1"

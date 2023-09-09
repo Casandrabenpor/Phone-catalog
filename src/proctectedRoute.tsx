@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { isUserLogged } from './features/listSlice/loginSlice/loginSlice';
+import { isUserLogged } from './features/loginSlice/loginSlice';
 import { useTypedSelector } from './app/store';
 import React from 'react';
 

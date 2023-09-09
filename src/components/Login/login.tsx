@@ -5,7 +5,7 @@ import logo from '../../assets/logophone.jpg';
 import { useTypedDispatch } from '../../app/store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { login } from '../../features/listSlice/loginSlice/loginSlice';
+import { login } from '../../features/loginSlice/loginSlice';
 import { toast } from 'react-toastify';
 
 export const Login = () => {
@@ -13,12 +13,11 @@ export const Login = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    // Verifica las credenciales (nombre de usuario y contraseña)
+    // Verify credentials (username and password).
     if (name === 'casandra' && password === '123456') {
       dispatch(
         login({
@@ -29,7 +28,6 @@ export const Login = () => {
 
       navigate('/admin/phones');
     } else {
-      setError('Credenciales incorrectas');
       toast.error('User incorrect', {
         position: toast.POSITION.TOP_RIGHT,
       });
@@ -60,7 +58,9 @@ export const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="heartbeat">
+          Login
+        </button>
       </Form>
     </ContainerLogin>
   );

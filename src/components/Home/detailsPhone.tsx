@@ -1,14 +1,14 @@
 import React from 'react';
-import { Details } from '../../styles/listStyled/detailsStyled';
+import { Details } from '../../styles/cardsStyled/detailsStyled';
 import { Link, useLocation } from 'react-router-dom';
 import { useTypedSelector } from '../../app/store';
-import { getAllPhones } from '../../features/listSlice/phoneSlice';
+import { getAllPhones } from '../../features/phoneApiSlice/phoneSlice';
 import Phone from '../../models/interface';
 import {
   TextPrice,
   TextGallery,
   TitleGallery,
-} from '../../styles/listStyled/listStyled';
+} from '../../styles/cardsStyled/cardsStyled';
 
 export const DetailsPhone = () => {
   const location = useLocation();

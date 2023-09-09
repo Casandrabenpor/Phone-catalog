@@ -71,5 +71,5 @@ export const IconsCard = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20em;
+  gap: 2em;
 `;

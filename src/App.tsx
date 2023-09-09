@@ -1,14 +1,40 @@
-import { useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { ProtectedRoute } from './proctectedRoute';
+import { AdminPage } from './pages/adminPage';
 import React from 'react';
-import { selectUser } from './features/listSlice/loginSlice/loginSlice';
-import { Login } from './components/Login/login';
-import { ListPhones } from './components/Home/listPhones';
+import { CreatePage } from './pages/createPage';
+import { HomePage } from './pages/homePage';
+import { LoginPage } from './pages/loginPage';
+import { DetailsPage } from './pages/detailsPhonePage';
 
-export const App = () => {
-  const user = useSelector(selectUser);
+function App() {
   return (
-    <div>
-      {user ? <ListPhones title="👩‍💻ADMIN" isAdmin={true} /> : <Login />}
-    </div>
+    <Routes>
+      <Route
+        index
+        path="/admin/phones"
+        element={
+          <ProtectedRoute>
+            {' '}
+            <AdminPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        index
+        path="/admin/phone/create"
+        element={
+          <ProtectedRoute>
+            {' '}
+            <CreatePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/details/*" element={<DetailsPage />} />
+    </Routes>
   );
-};
+}
+
+export default App;
