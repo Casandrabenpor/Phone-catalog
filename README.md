@@ -46,7 +46,7 @@ Finalmente, para implementar el despliegue de la aplicación, segui estos pasos:
 Para realizar el despliegue:
 
 `npm run deploy`
-
+- No es responsive,por falta de tiempo
 ## Retos
 
 - El primer reto ha sido la llamada a la api ya que no me funcionaba por un problema de cors. Investigando por internet encontré que lo podia solucionar el problema usando un proxy llamado "Cors-anywhere" , como esto ( https://cors-anywhere.herokuapp.com/corsdemo) , se añade como parte de la ruta la url de la Api.
