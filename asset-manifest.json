@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Phone-catalog/static/css/main.bd62d4b3.css",
-    "main.js": "/Phone-catalog/static/js/main.4dcd1106.js",
+    "main.js": "/Phone-catalog/static/js/main.432ebb9d.js",
     "static/media/logophone.jpg": "/Phone-catalog/static/media/logophone.f314c9f7d1698aef57f4.jpg",
     "index.html": "/Phone-catalog/index.html",
     "main.bd62d4b3.css.map": "/Phone-catalog/static/css/main.bd62d4b3.css.map",
-    "main.4dcd1106.js.map": "/Phone-catalog/static/js/main.4dcd1106.js.map"
+    "main.432ebb9d.js.map": "/Phone-catalog/static/js/main.432ebb9d.js.map"
   },
   "entrypoints": [
     "static/css/main.bd62d4b3.css",
-    "static/js/main.4dcd1106.js"
+    "static/js/main.432ebb9d.js"
   ]
 }
